@@ -39,6 +39,9 @@ jobs:
         with:
           chrome-version: 'stable'
 
+      - name: Check Chrome Version
+        run: google-chrome --version
+  
       - name: Set up ChromeDriver
         uses: nanasess/setup-chromedriver@v1
         with:
