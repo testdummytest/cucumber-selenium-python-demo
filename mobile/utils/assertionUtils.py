@@ -2,7 +2,6 @@ import logging
 from selenium.common import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
-from appium.webdriver.common.appiumby import AppiumBy
 from mobile.utils.elementsUtils import ElementsUtils
 
 TIMEOUT = 10
