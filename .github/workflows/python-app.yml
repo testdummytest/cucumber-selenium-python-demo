@@ -34,6 +34,32 @@ jobs:
           pip install -r mobile/requirements.txt
           pip install pytest pytest-bdd
 
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Determine Chrome Version
+        id: chrome-version
+        run: |
+          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+          echo "Chrome version: $CHROME_VERSION"
+          echo "CHROME_VERSION=$CHROME_VERSION" >> $GITHUB_ENV
+
+      - name: Fetch ChromeDriver Version
+        id: chromedriver-version
+        run: |
+          CHROME_DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${{ env.CHROME_VERSION%%.* }}" | tr -d '\n')
+          echo "ChromeDriver version: $CHROME_DRIVER_VERSION"
+          echo "CHROME_DRIVER_VERSION=$CHROME_DRIVER_VERSION" >> $GITHUB_ENV
+
+      - name: Download and Install ChromeDriver
+        run: |
+          wget "https://chromedriver.storage.googleapis.com/${{ env.CHROME_DRIVER_VERSION }}/chromedriver_linux64.zip"
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+          chromedriver --version
+
       # Step 4: Run tests
       - name: Run pytest
         id: pytest
