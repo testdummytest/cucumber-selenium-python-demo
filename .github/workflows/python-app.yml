@@ -42,7 +42,7 @@ jobs:
       - name: Set up ChromeDriver
         uses: nanasess/setup-chromedriver@v1
         with:
-          chromedriver-version: 'latest'
+          chromedriver-version: '131.0.6778.264'
  
       # Step 4: Run tests
       - name: Run pytest
