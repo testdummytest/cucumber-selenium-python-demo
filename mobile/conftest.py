@@ -22,9 +22,9 @@ def driver(request):
         # c.add_argument("--disable-dev-shm-usage")
         # prefs={"download.default_directory":os.getcwd()+"/downloads"}
         # c.add_experimental_option("prefs",prefs)
-        driver = webdriver.Chrome(options=c)
+        # driver = webdriver.Chrome(options=c)
         # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=c)
-        # driver = webdriver.Remote(command_executor='http://selenium__standalone-chrome:4444/wd/hub',options=c)
+        driver = webdriver.Remote(command_executor='http://selenium__standalone-chrome:4444/wd/hub',options=c)
         # driver = webdriver.Chrome()
         yield driver
     except Exception as e:
