@@ -1,0 +1,8 @@
+,Error Type
+0,loginNotHappened
+1,noSuchElementFound
+2,timedOutException
+3,assertionError
+4,clickIntercepted
+5,elementNotInteractable
+6,miscellaneous
