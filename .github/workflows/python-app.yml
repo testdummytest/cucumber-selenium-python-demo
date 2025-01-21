@@ -11,10 +11,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-    services:
-      selenium:
-        image: selenium/standalone-chrome:latest
+    runs-on: ubuntu-latest----++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
     
     steps:
       # Step 1: Checkout the repository
@@ -33,6 +30,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r mobile/requirements.txt
           pip install selenium pytest
+          pip install chromedriver-autoinstaller
           pip install pytest pytest-bdd
 
       # Step 4: Run tests
