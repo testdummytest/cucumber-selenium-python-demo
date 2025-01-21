@@ -34,19 +34,6 @@ jobs:
           pip install -r mobile/requirements.txt
           pip install pytest pytest-bdd
 
-      - name: Set up Chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: 'stable'
-
-      - name: Check Chrome Version
-        run: google-chrome --version
-  
-      - name: Set up ChromeDriver
-        uses: browser-actions/setup-chromedriver@v2
-        with:
-          chrome-version: stable  # Matches the Chrome version installed
-
       # Step 4: Run tests
       - name: Run pytest
         id: pytest
