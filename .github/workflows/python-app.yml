@@ -43,7 +43,7 @@ jobs:
         run: google-chrome --version
   
       - name: Set up ChromeDriver
-        uses: actions/setup-chromedriver@v2
+        uses: browser-actions/setup-chromedriver@v2
         with:
           chrome-version: stable  # Matches the Chrome version installed
 
