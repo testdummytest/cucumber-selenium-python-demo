@@ -24,7 +24,7 @@ def driver(request):
         # c.add_experimental_option("prefs",prefs)
         # driver = webdriver.Chrome(options=c)
         # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=c)
-        driver = webdriver.Remote(command_executor='http://selenium__standalone-chrome:4444/wd/hub',options=c)
+        driver = webdriver.Remote(command_executor='http://localhost:4444/wd/hub',options=c)
         # driver = webdriver.Chrome()
         yield driver
     except Exception as e:
