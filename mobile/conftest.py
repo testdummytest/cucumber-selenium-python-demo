@@ -14,7 +14,7 @@ from selenium import webdriver
 def driver(request):
     try:
         c = Options()
-        # c.add_argument("--headless=new")
+        c.add_argument("--headless=new")
         c.add_argument("--window-size=1920,1080")
         # c.add_argument("--no-sandbox")
         # # c.add_argument("enable-automation")
