@@ -42,14 +42,6 @@ jobs:
       - name: Fetch ChromeDriver Version
         id: chromedriver-version
         run: |
-          CHROME_MAJOR_VERSION=$(echo "${{ env.CHROME_VERSION }}" | cut -d '.' -f 1)
-          CHROME_DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_MAJOR_VERSION}" | tr -d '\n')
-          echo "ChromeDriver version: $CHROME_DRIVER_VERSION"
-          echo "CHROME_DRIVER_VERSION=$CHROME_DRIVER_VERSION" >> $GITHUB_ENV
-
-      - name: Fetch ChromeDriver Version
-        id: chromedriver-version
-        run: |
           CHROME_DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${{ env.CHROME_VERSION%%.* }}" | tr -d '\n')
           echo "ChromeDriver version: $CHROME_DRIVER_VERSION"
           echo "CHROME_DRIVER_VERSION=$CHROME_DRIVER_VERSION" >> $GITHUB_ENV
