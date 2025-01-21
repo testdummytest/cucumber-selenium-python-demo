@@ -43,9 +43,9 @@ jobs:
         run: google-chrome --version
   
       - name: Set up ChromeDriver
-        uses: nanasess/setup-chromedriver@v1
+        uses: actions/setup-chromedriver@v2
         with:
-          chromedriver-version: '132.0.6834.83'
+          chrome-version: stable  # Matches the Chrome version installed
 
       # Step 4: Run tests
       - name: Run pytest
