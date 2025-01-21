@@ -15,7 +15,10 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
- 
+    services:
+      selenium:
+        image: selenium/standalone-chrome:latest
+    
     steps:
       # Step 1: Checkout the repository
       - name: Checkout Code
@@ -33,33 +36,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r mobile/requirements.txt
           pip install pytest pytest-bdd
-
-      - name: Install Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-
-      - name: Set Chrome Version
-        run: |
-          # Make sure you have a valid Chrome version set in the environment or use a fixed version
-          echo "CHROME_VERSION=$(google-chrome-stable --version | awk '{print $3}')" >> $GITHUB_ENV
-          echo "Chrome version: $CHROME_VERSION"
-
-      - name: Fetch ChromeDriver Version
-        id: chromedriver-version
-        run: |
-          # Extract the major version from Chrome version
-          CHROME_MAJOR_VERSION=$(echo ${{ env.CHROME_VERSION }} | cut -d'.' -f1)
-          CHROME_DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_MAJOR_VERSION}" | tr -d '\n')
-          echo "ChromeDriver version: $CHROME_DRIVER_VERSION"
-          echo "CHROME_DRIVER_VERSION=$CHROME_DRIVER_VERSION" >> $GITHUB_ENV
-
-      - name: Download and Install ChromeDriver
-        run: |
-          wget "https://chromedriver.storage.googleapis.com/${{ env.CHROME_DRIVER_VERSION }}/chromedriver_linux64.zip"
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          chromedriver --version
 
       # Step 4: Run tests
       - name: Run pytest
