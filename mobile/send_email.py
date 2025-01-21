@@ -7,6 +7,7 @@ from email.mime.application import MIMEApplication
 from bs4 import BeautifulSoup
 from datetime import datetime
 import requests
+from smtplib import SMTP
 from requests.auth import HTTPBasicAuth
 
 # def get_app_management_details():
@@ -36,7 +37,7 @@ def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, 
     print("In send mail function")
 
     # Parse HTML file to extract test execution statistics
-    with open('public/report.html', 'r') as file:
+    with open('report/report.html', 'r') as file:
         soup = BeautifulSoup(file, 'html.parser')
     
     # Count occurrences 
@@ -90,10 +91,10 @@ def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, 
         passed=new_list["pass"],
         fail=new_list["fail"],
         skip=new_list["skip"],
-        pass_percentage=round(new_list["pass"] / new_list["total"] * 100, 2),
-        fail_percentage=round(new_list["fail"] / new_list["total"] * 100, 2),
-        tags=str(sys.argv[1]),
-        env=str(sys.argv[2]),
+        pass_percentage="100",
+        fail_percentage="100",
+        tags="yyyy",
+        env="test",
         date=date_time_str
     )
 
@@ -103,36 +104,42 @@ def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, 
     # Create email message
     msg = MIMEMultipart()
     body_part = MIMEText(body_message, 'html')  # Use 'html' to include HTML formatted content
-    msg['From'] = send_from
-    msg['To'] = ", ".join(send_to)
-    msg['CC'] = ", ".join(cc_list)
     msg['Subject'] = subject
     msg.attach(body_part)
 
     # Attach report and log files
-    with open("public/report.html", 'rb') as file:
+    with open("report/report.html", 'rb') as file:
         msg.attach(MIMEApplication(file.read(), Name="report.html"))
 
-    # Attach any PNG files in the "public" directory
-    for file_name in os.listdir("public/"):
-        if file_name.endswith(".png"):
-            file_path = os.path.join("public/", file_name)
-            with open(file_path, 'rb') as file:
-                part = MIMEApplication(file.read(), Name=file_name)
-                part['Content-Disposition'] = f'attachment; filename="{file_name}"'
-                msg.attach(part)
+    # # Attach any PNG files in the "public" directory
+    # for file_name in os.listdir("report/"):
+    #     if file_name.endswith(".png"):
+    #         file_path = os.path.join("report/", file_name)
+    #         with open(file_path, 'rb') as file:
+    #             part = MIMEApplication(file.read(), Name=file_name)
+    #             part['Content-Disposition'] = f'attachment; filename="{file_name}"'
+    #             msg.attach(part)
 
-    # Connect to SMTP server and send email
-    server = smtplib.SMTP(server, port)
-    print("Sending Email")
-    server.sendmail(send_from, send_to + cc_list, msg.as_string())
-    server.quit()
+    msg["From"] = send_from
+    msg["To"] = ", ".join(send_to)
+    msg["Cc"] = ", ".join(cc_list)
+    try:
+        server = SMTP("smtp.gmail.com", 587)
+        # outlook = client.Dispatch("Outlook.Application")
+        server.starttls()
+        server.login(msg["From"], "wscbinclchnuewxn")
+        server.sendmail(msg["From"], "yogesh@primeqasolutions.com", msg.as_string())
+        server.quit()
+        print("Mail Sent successfully")
+    except Exception as e_mail:
+        print("Mail sending Failed")
+        print(e_mail)
 
 # Get current date and time
 now = datetime.now()
 date_time_str = now.strftime("%Y-%m-%d %H:%M:%S")
 
-send_to = ["shahyogesh0902@gmail.com"]
+send_to = ["yogesh@primeqasolutions.com"]
 cc_list = ["yogesh@primeqasolutions.com"]
 
-send_mail("automationreport477@gmail.com", send_to, cc_list, "Automation execution report - Mobile Native " + " Device: " + sys.argv[2] + " Build: ", "SMTP.petc.com", port=25)
+send_mail("automationreport477@gmail.com", send_to, cc_list, "Automation execution report - Mobile Native Build: ","\n", "SMTP.petc.com", port=25)

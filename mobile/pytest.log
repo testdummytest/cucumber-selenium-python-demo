@@ -1,0 +1,3 @@
+[2025-01-21 18:21:46.533][INFO]:[utils.py][317] - Chromedriver is already installed.
+[2025-01-21 18:21:58.289][INFO]:[elementsUtils.py][30] - Element text: Invalid First Name
+[2025-01-21 18:21:58.469][INFO]:[elementsUtils.py][30] - Element text: Invalid Last Name

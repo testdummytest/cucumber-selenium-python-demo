@@ -38,4 +38,5 @@ jobs:
         id: pytest
         run: |
           pytest -s ./mobile/ -m testhere --html=report/report.html
+          python send_email.py
         continue-on-error: false
