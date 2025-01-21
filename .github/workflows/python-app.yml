@@ -9,8 +9,7 @@ on:
   pull_request:
     branches: [ "main" ]
 
-permissions:
-  contents: read
+*-
 
 jobs:
   test:
@@ -35,6 +34,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r mobile/requirements.txt
+          pip install selenium pytest
           pip install pytest pytest-bdd
 
       # Step 4: Run tests
@@ -42,4 +42,4 @@ jobs:
         id: pytest
         run: |
           pytest -s ./mobile/ -m testhere --html=report/report.html
-        continue-on-error: true
+        continue-on-error: false
