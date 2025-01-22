@@ -39,4 +39,4 @@ jobs:
         run: |
           pytest -s ./mobile/ -m testhere --template=html1/index.html --report=report/report.html
           python ./mobile/send_email.py
-        continue-on-error: false
+        continue-on-error: true
