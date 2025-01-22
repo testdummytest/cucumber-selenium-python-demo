@@ -37,9 +37,9 @@ jobs:
       - name: Run pytest
         id: pytest
         run: |
-          pytest -s ./mobile/ -m testhere --template=html1/index.html --report=report/report.html
-      
-      # Step 4: Send email
+          pytest -s ./mobile/ -m testhere --template=html1/index.html --report=report/report.html --junitxml=report/junit_report.xml
+  send_email:
+    steps:
       - name: Send email
         id: send_email
         run: |
