@@ -40,6 +40,7 @@ jobs:
           pytest -s ./mobile/ -m testhere --template=html1/index.html --report=report/report.html --junitxml=report/junit_report.xml
   send_email:
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Send email
         id: send_email
