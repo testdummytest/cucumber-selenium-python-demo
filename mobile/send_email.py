@@ -37,7 +37,7 @@ def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, 
     print("In send mail function")
 
     # Parse HTML file to extract test execution statistics
-    with open('public/report.html', 'r') as file:
+    with open('report/report.html', 'r') as file:
         soup = BeautifulSoup(file, 'html.parser')
     # Count occurrences 
     total_pass = len(soup.find_all(string="PASSED"))
@@ -107,7 +107,7 @@ def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, 
     msg.attach(body_part)
 
     # Attach report and log files
-    with open("public/report.html", 'rb') as file:
+    with open("report/report.html", 'rb') as file:
         msg.attach(MIMEApplication(file.read(), Name="report.html"))
 
     # # Attach any PNG files in the "public" directory
