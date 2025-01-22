@@ -61,7 +61,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r mobile/requirements.txt
           mkdir -p public
-          mv report/* public/
+          mv mobile/report/* public/
 
       - name: Send email
         id: send_email
