@@ -91,9 +91,9 @@ def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, 
         passed=new_list["pass"],
         fail=new_list["fail"],
         skip=new_list["skip"],
-        pass_percentage="100",
-        fail_percentage="100",
-        tags="yyyy",
+        pass_percentage=round(new_list["pass"]/new_list["total"]*100, 2),
+        fail_percentage=round(new_list["fail"]/new_list["total"]*100, 2),
+        tags="testhere",
         env="test",
         date=date_time_str
     )
@@ -142,4 +142,4 @@ date_time_str = now.strftime("%Y-%m-%d %H:%M:%S")
 send_to = ["yogesh@primeqasolutions.com"]
 cc_list = ["yogesh@primeqasolutions.com"]
 
-send_mail("automationreport477@gmail.com", send_to, cc_list, "Automation execution report - Mobile Native Build: ","\n", "SMTP.petc.com", port=25)
+send_mail("automationreport477@gmail.com", send_to, cc_list, "Automation execution report: ","\n", "SMTP.gmail.com", port=587)

@@ -15,7 +15,7 @@ Feature: Register
       | https://signup.testewallet.com/register | ftest123  | Invalid First Name | ltest123 | Invalid Last Name |
 
 
-   # @testhere
+   @testhere
    Scenario Outline: C02-Register form email field
       Given User open browser and navigates to the <link> page
       When User now enter the <email>
@@ -26,7 +26,7 @@ Feature: Register
       | https://signup.testewallet.com/register | testhgmail  | Invalid Email |
 
 
-   # @testhere
+   @testhere
    Scenario Outline: C03-Register form phonenumber field
       Given User open browser and navigates to the <link> page
       When User want to enters a <phonenumber>
@@ -34,7 +34,7 @@ Feature: Register
 
       Examples:
       | link                                    | phonenumber | phoneerror           |
-      | https://signup.testewallet.com/register | 123         | Invalid Phone Number |
+      | https://signup.testewallet.com/register | 123         | Invalid Number |
 
 
    # @testhere
