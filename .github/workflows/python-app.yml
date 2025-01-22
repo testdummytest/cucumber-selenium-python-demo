@@ -42,7 +42,6 @@ jobs:
 
       # Step 4: Send email
       - name: Send email
-        id: Send email
         run: |
           python ./mobile/send_email.py
         continue-on-error: false
