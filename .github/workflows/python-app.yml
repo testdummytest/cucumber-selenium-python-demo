@@ -38,5 +38,9 @@ jobs:
         id: pytest
         run: |
           pytest -s ./mobile/ -m testhere --template=html1/index.html --report=report/report.html
+      
+      # Step 4: Send email
+      - name: Send email
+        id: send_email
+        run: |
           python ./mobile/send_email.py
-        continue-on-error: true

@@ -6,7 +6,6 @@ from pytest_bdd import given, scenario, scenarios, when, then, parsers
 from time import sleep
 import random, json
 from selenium.webdriver.chrome.options import Options
-from contextlib import contextmanager
 
 
 @pytest.fixture()
