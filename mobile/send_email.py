@@ -123,4 +123,4 @@ date_time_str = now.strftime("%Y-%m-%d %H:%M:%S")
 send_to = ["yogesh@primeqasolutions.com"]
 cc_list = ["yogesh@primeqasolutions.com"]
 
-# send_mail("automationreport477@gmail.com", send_to, cc_list, "Automation execution report: ","\n", "smtp.gmail.com", port=587)
+send_mail("automationreport477@gmail.com", send_to, cc_list, "Automation execution report: ","\n", "smtp.gmail.com", port=587)
