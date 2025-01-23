@@ -74,4 +74,4 @@ jobs:
       - name: Send email
         id: send_email
         run: |
-          python ./mobile/send_email.py
+          python ./send_email.py
