@@ -3,8 +3,8 @@ import pytest, logging, os
 from selenium import webdriver
 import chromedriver_autoinstaller
 import xml.etree.ElementTree as ET
-from mobile import Dashboard
-import send_email
+# from mobile import Dashboard
+# import send_email
 
        
 @pytest.fixture(scope="session")
