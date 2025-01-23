@@ -35,6 +35,10 @@ jobs:
         id: pytest
         run: |
           pytest -s ./mobile/ -m testhere --template=html1/index.html --report=report/report.html --junitxml=report/junit_report.xml
+      
+      - name: Print report path
+        run: |
+          ls -l ./mobile
 
       # Step 5: Upload test reports as artifacts
       - name: Upload test reports
