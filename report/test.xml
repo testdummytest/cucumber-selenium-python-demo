@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="13.450" timestamp="2025-01-22T17:39:24.370887" hostname="LAPTOP-894A5SQ2"><testcase classname="mobile.test_example" name="test_c03register_form_phonenumber_field[https://signup.testewallet.com/register-123-Invalid Number]" time="13.152"><failure message="AssertionError">fixturefunc = &lt;function validate_phone at 0x000001A41A5E1E40&gt;
+request = &lt;FixtureRequest for &lt;Function test_c03register_form_phonenumber_field[https://signup.testewallet.com/register-123-Invalid Number]&gt;&gt;
+kwargs = {'driver': &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="fa2eae997dca5ab64c7ec8bf5429114f")&gt;, 'errormsg': 'Invalid Number'}
+
+    def call_fixture_func(
+        fixturefunc: "_FixtureFunc[FixtureValue]", request: FixtureRequest, kwargs
+    ) -&gt; FixtureValue:
+        if is_generator(fixturefunc):
+            fixturefunc = cast(
+                Callable[..., Generator[FixtureValue, None, None]], fixturefunc
+            )
+            generator = fixturefunc(**kwargs)
+            try:
+                fixture_result = next(generator)
+            except StopIteration:
+                raise ValueError(f"{request.fixturename} did not yield a value") from None
+            finalizer = functools.partial(_teardown_yield_fixture, fixturefunc, generator)
+            request.addfinalizer(finalizer)
+        else:
+            fixturefunc = cast(Callable[..., FixtureValue], fixturefunc)
+&gt;           fixture_result = fixturefunc(**kwargs)
+
+C:\Users\prime\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\fixtures.py:902: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+mobile\step_defs\common_steps.py:54: in validate_phone
+    RegisterLocators.validate_phone(driver, errormsg)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+driver = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="fa2eae997dca5ab64c7ec8bf5429114f")&gt;
+errormsg = 'Invalid Number'
+
+    @staticmethod
+    def validate_phone(driver, errormsg):
+        phone_error = RegisterPageLocators.ERROR_PATH
+&gt;       assert ElementsUtils.get_text(driver,phone_error) == errormsg
+E       AssertionError
+
+mobile\locators\registerPageLocators.py:100: AssertionError</failure></testcase></testsuite></testsuites>

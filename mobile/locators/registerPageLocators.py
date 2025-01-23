@@ -2,8 +2,6 @@ from time import sleep
 import logging
 from selenium.webdriver.common.by import By
 from mobile.utils.elementsUtils import ElementsUtils
-from mobile.utils.assertionUtils import AssertionUtils
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC

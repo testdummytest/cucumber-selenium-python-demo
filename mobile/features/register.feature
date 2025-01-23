@@ -2,7 +2,7 @@
 @register
 Feature: Register
 
-   @testhere
+   # @testhere
    Scenario Outline: C01-Register form firstname and lastname field
       Given User open browser and navigates to the <link> page
       When User enters <firstname>
@@ -15,7 +15,7 @@ Feature: Register
       | https://signup.testewallet.com/register | ftest123  | Invalid First Name | ltest123 | Invalid Last Name |
 
 
-   @testhere
+   # @testhere
    Scenario Outline: C02-Register form email field
       Given User open browser and navigates to the <link> page
       When User now enter the <email>

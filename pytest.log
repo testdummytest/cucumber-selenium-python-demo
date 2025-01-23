@@ -1,0 +1,6 @@
+[2025-01-23 11:00:27.426][INFO]:[conftest.py][37] - In pytest_runtest_makereport
+[2025-01-23 11:00:27.688][INFO]:[utils.py][317] - Chromedriver is already installed.
+[2025-01-23 11:00:38.228][INFO]:[elementsUtils.py][26] - Element text: Invalid Phone Number
+[2025-01-23 11:00:38.228][INFO]:[conftest.py][37] - In pytest_runtest_makereport
+[2025-01-23 11:00:38.340][INFO]:[conftest.py][42] - <selenium.webdriver.chrome.webdriver.WebDriver (session="85b37553b90523f3120625dfb770b07d")>
+[2025-01-23 11:00:41.368][INFO]:[conftest.py][37] - In pytest_runtest_makereport

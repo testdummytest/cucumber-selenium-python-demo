@@ -1,4 +1,4 @@
-from pytest_bdd import when, then, given, parsers
+from pytest_bdd import when, then, given, parsers, scenarios
 from pytest_bdd.parsers import parse
 from pytest_bdd.parsers import cfparse as Parser
 from selenium import webdriver
@@ -6,6 +6,7 @@ import time
 from selenium.webdriver.common.by import By
 import logging
 from mobile.locators.registerPageLocators import RegisterLocators
+scenarios("../features/register.feature")
     
 @given(Parser('User open browser and navigates to the {link} page'))
 def open_browser(driver, link):
