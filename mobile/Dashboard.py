@@ -18,7 +18,7 @@ def Eleven_Automation_Login():
     url = AWS_IP + "api/v1/auth/login"
 
     payload = json.dumps(
-        {"email": "yogesh@primeqasolutions.com", "password": "Yogesh@123"}
+        {"email": "superAdmin@yopmail.com", "password": "SuperAdmin@123"}
     )
     headers = {"Content-Type": "application/json", "Authorization": "Basic Og=="}
 
@@ -39,7 +39,7 @@ def Eleven_Automation_Login():
 
 def Eleven_Automation_Iteration(RT_Login_Token):
     print("Entered into Eleven_Automation_Iteration method....")
-    url = AWS_IP + "api/v1/iterations/" + Project_API_Key
+    url = AWS_IP + "api/v1/public/iterations/" + Project_API_Key
     # payload = json.dumps(dict(Iteration_data),default=str)
     print(url)
 
@@ -75,7 +75,7 @@ def Eleven_Automation_Iteration(RT_Login_Token):
 
 
 def Eleven_Automation_TestCase(RT_Login_Token, RT_Iteration_Id, Dashboard_list):
-    url = AWS_IP + "api/v1/testcases/" + str(RT_Iteration_Id)
+    url = AWS_IP + "api/v1/public/testcases/" + str(RT_Iteration_Id)
     logging.debug(Dashboard_list)
     testcase_list = []
     i = 0
@@ -112,7 +112,7 @@ def Eleven_Automation_TestCase(RT_Login_Token, RT_Iteration_Id, Dashboard_list):
 
 
 def image_to_base64(dashboardList):
-    image_path = os.getcwd() + "\\screenshots\\main_test"
+    image_path = os.getcwd() + "\\screenshots"
     for imgage in os.listdir(image_path):
         with open(image_path+"\\"+imgage, "rb") as img_file:
             # Read the image file

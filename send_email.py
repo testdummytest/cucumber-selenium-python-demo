@@ -1,15 +1,11 @@
-import os
-import smtplib
-import sys
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 from bs4 import BeautifulSoup
 from datetime import datetime
-import requests
 from smtplib import SMTP
-from requests.auth import HTTPBasicAuth
 import shutil
+
 def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, isTls=True):
     print("In send mail function")
 
@@ -92,14 +88,6 @@ def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, 
     with open("screenshots.zip", 'rb') as file:
         msg.attach(MIMEApplication(file.read(), Name="screenshots.zip"))
         
-    # # Attach any PNG files in the "public" directory
-    # for file_name in os.listdir("report/"):
-    #     if file_name.endswith(".png"):
-    #         file_path = os.path.join("report/", file_name)
-    #         with open(file_path, 'rb') as file:
-    #             part = MIMEApplication(file.read(), Name=file_name)
-    #             part['Content-Disposition'] = f'attachment; filename="{file_name}"'
-    #             msg.attach(part)
 
     msg["From"] = send_from
     msg["To"] = ", ".join(send_to)

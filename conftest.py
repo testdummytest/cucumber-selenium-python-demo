@@ -3,8 +3,8 @@ import pytest, logging, os
 from selenium import webdriver
 import chromedriver_autoinstaller
 import xml.etree.ElementTree as ET
-# from mobile import Dashboard
-# from mobile import send_mail
+from mobile import Dashboard
+import send_email
 
        
 @pytest.fixture(scope="session")
@@ -12,20 +12,10 @@ def driver(request):
     try:
         chromedriver_autoinstaller.install()
         c = webdriver.ChromeOptions()   
-        # c = Options()
         c.add_argument("--headless=new")
         c.add_argument("--window-size=1920,1080")
-        # c.add_argument("--no-sandbox")
-        # # c.add_argument("enable-automation")
-        # c.add_argument("--disable-blink-features=AutomationControlled")
-        # c.add_argument("--disable-dev-shm-usage")
-        # prefs={"download.default_directory":os.getcwd()+"/downloads"}
-        # c.add_experimental_option("prefs",prefs)
         driver = webdriver.Chrome(options=c)
         request.node.driver = driver
-        # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=c)
-        # driver = webdriver.Remote(command_executor='http://localhost:4444/wd/hub',options=c)
-        # driver = webdriver.Chrome()
         yield driver
     except Exception as e:
         logging.error(e)
@@ -48,7 +38,7 @@ def pytest_runtest_makereport(item, call):
             driver.save_screenshot(screenshot_path)
 
 def fetch():
-    path = os.getcwd() + "report/junit.xml"
+    path = os.getcwd() + "/report/test.xml"
     tree = ET.parse(path)
     root = tree.getroot()
     test_results = []
@@ -69,8 +59,8 @@ def fetch():
     return test_results
 
 # def pytest_unconfigure(config):
-#     dashboard_list = fetch()
-#     dashboard_main(dashboard_list)
+#     # dashboard_list = fetch()
+#     # dashboard_main(dashboard_list)
 #     send_to = ["yogesh@primeqasolutions.com"]
 #     cc_list = ["yogesh@primeqasolutions.com"]
-#     # send_mail("automationreport477@gmail.com", send_to, cc_list, "Automation execution report: ","\n", "smtp.gmail.com", port=587)
+#     send_email.send_mail("automationreport477@gmail.com", send_to, cc_list, "Automation execution report: ","\n", "smtp.gmail.com", port=587)

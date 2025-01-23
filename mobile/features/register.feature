@@ -2,7 +2,7 @@
 @register
 Feature: Register
 
-   # @testhere
+   @registration
    Scenario Outline: C01-Register form firstname and lastname field
       Given User open browser and navigates to the <link> page
       When User enters <firstname>
@@ -15,7 +15,7 @@ Feature: Register
       | https://signup.testewallet.com/register | ftest123  | Invalid First Name | ltest123 | Invalid Last Name |
 
 
-   # @testhere
+   @registration
    Scenario Outline: C02-Register form email field
       Given User open browser and navigates to the <link> page
       When User now enter the <email>
@@ -26,7 +26,7 @@ Feature: Register
       | https://signup.testewallet.com/register | testhgmail  | Invalid Email |
 
 
-   @testhere
+   @registration
    Scenario Outline: C03-Register form phonenumber field
       Given User open browser and navigates to the <link> page
       When User want to enters a <phonenumber>
@@ -37,7 +37,7 @@ Feature: Register
       | https://signup.testewallet.com/register | 123         | Invalid Number |
 
 
-   # @testhere
+   @registration
    Scenario Outline: C04-Register form country field
       Given User open browser and navigates to the <link> page
       When User validate country field <countryerror>
@@ -47,7 +47,7 @@ Feature: Register
       | https://signup.testewallet.com/register | Country is required |
 
 
-   # @testhere
+   @registration
    Scenario Outline: C05-Register form check register button is default enabled
       Given User open browser and navigates to the <link> page
       When User see register button is default enabled
