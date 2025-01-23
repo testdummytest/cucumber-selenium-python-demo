@@ -48,7 +48,7 @@ def pytest_runtest_makereport(item, call):
             driver.save_screenshot(screenshot_path)
 
 def fetch():
-    path = os.getcwd() + "report\junit.xml"
+    path = os.getcwd() + "report/junit.xml"
     tree = ET.parse(path)
     root = tree.getroot()
     test_results = []
