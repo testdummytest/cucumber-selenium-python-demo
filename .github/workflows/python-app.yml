@@ -70,7 +70,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: report
-          path: report/report.html
+          path: report
       - name: Send email
         id: send_email
         run: |
