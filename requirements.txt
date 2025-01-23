@@ -66,7 +66,7 @@ pyscreenshot==3.1
 PyScreeze==0.1.29
 PySocks==1.7.1
 pytesseract==0.3.10
-pytest==8.2.2
+pytest==8.3.4
 pytest-asyncio==0.23.7
 pytest-base-url==2.1.0
 pytest-bdd==7.2.0
