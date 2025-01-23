@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: report
-          path: report.html
+          path: ./mobile/report/report.html
 
   send_email:
     runs-on: ubuntu-latest
@@ -64,6 +64,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: report
+          path: ./mobile/report
       - name: Send email
         id: send_email
         run: |
