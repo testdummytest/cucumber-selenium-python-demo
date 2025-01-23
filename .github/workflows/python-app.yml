@@ -34,7 +34,7 @@ jobs:
       - name: Run pytest
         id: pytest
         run: |
-          pytest -m testhere -s --template=html1/index.html --report=report/report.html --junitxml=report/report.xml
+          pytest -s ./mobile/ -m testhere --template=html1/index.html --report=report/report.html --junitxml=report/report.xml
         if: always()
       
       - name: Print report path
