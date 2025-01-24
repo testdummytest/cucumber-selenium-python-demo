@@ -23,7 +23,7 @@ Feature: Register
 
       Examples:
       | Link                                    | Email       | emailError    |
-      | https://signup.testewallet.com/register | testhgmail  | Invalid Email |
+      | https://signup.testewallet.com/register | testhgmail  | Invalid Email123 |
 
 
    @registration
