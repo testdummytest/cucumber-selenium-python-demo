@@ -33,8 +33,8 @@ def pytest_runtest_makereport(item, call):
         if driver:
             screenshot_name = f"{item.name}.png".replace('[', "_").replace(']', "_")
             sanitized_name = "".join(c for c in screenshot_name if c.isalnum() or c in (" ", "-", "_", "."))
-            screenshot_path = os.path.join("screenshots", sanitized_name)
-            os.makedirs("screenshots", exist_ok=False)
+            screenshot_path = os.path.join("screenshot", sanitized_name)
+            os.makedirs("screenshot", exist_ok=False)
             driver.save_screenshot(screenshot_path)
 
 def fetch():
