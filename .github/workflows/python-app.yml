@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: screenshot
-          path: screenshots
+          path: screenshot
         if: always()
 
   send_email:
