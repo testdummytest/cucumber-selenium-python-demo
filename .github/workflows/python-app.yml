@@ -79,11 +79,11 @@ jobs:
           name: report
           path: report
           
-      - name: Download reports
+      - name: Download screenshot.zip
         uses: actions/download-artifact@v4
         with:
           name: screenshots
-          path: screenshots
+          path: screenshot.zip
           
       - name: Send email
         id: send_email
