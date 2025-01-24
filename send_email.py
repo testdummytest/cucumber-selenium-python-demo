@@ -79,7 +79,7 @@ def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, 
     msg['Subject'] = subject
     msg.attach(body_part)
     
-    # shutil.make_archive("screenshots", 'zip', "screenshots")
+    shutil.make_archive("screenshots", 'zip', "screenshots")
     # Attach report and log files
     with open("report/report.html", 'rb') as file:
         msg.attach(MIMEApplication(file.read(), Name="report.html"))
