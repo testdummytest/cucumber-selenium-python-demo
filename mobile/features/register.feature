@@ -12,7 +12,7 @@ Feature: Register
 
       Examples:
       | Link                                    | firstName | firstNameError     | lastName | lastNameError     | 
-      | https://signup.testewallet.com/register | ftest123  | Invalid First Name | ltest123 | Invalid Last Name |
+      | https://signup.testewallet.com/register | ftest123  | Invalid First Name | ltest123 | Invalid Last Name1 |
 
 
    @registration
