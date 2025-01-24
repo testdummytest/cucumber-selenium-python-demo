@@ -12,7 +12,7 @@ Feature: Register
 
       Examples:
       | Link                                    | firstName | firstNameError     | lastName | lastNameError     | 
-      | https://signup.testewallet.com/register | ftest123  | Invalid First Name | ltest123 | Invalid Last Name1 |
+      | https://signup.testewallet.com/register | ftest123  | Invalid First Name | ltest123 | Invalid Last Name |
 
 
    @registration
@@ -23,7 +23,7 @@ Feature: Register
 
       Examples:
       | Link                                    | Email       | emailError    |
-      | https://signup.testewallet.com/register | testhgmail  | Invalid Email123 |
+      | https://signup.testewallet.com/register | testhgmail  | Invalid Email |
 
 
    @registration
@@ -34,7 +34,7 @@ Feature: Register
 
       Examples:
       | Link                                    | phoneNumber | phoneError      |
-      | https://signup.testewallet.com/register | 123         | Invalid Number  |
+      | https://signup.testewallet.com/register | 123         | Invalid Phone Number  |
 
 
    @registration
@@ -44,7 +44,7 @@ Feature: Register
 
       Examples:
       | Link                                    | countryError        |
-      | https://signup.testewallet.com/register | Country is required |
+      | https://signup.testewallet.com/register | Country is required123 |
 
 
    @registration
